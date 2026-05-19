@@ -1,0 +1,155 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Roadmap Generator</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'styles/roadmap.css' %}">
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+    <div class="logo">
+        CareerBuddy
+    </div>
+
+    <div class="menu">
+
+        <a href="{% url 'home' %}">
+            Dashboard
+        </a>
+
+        <a href="{% url 'resume_analyzer' %}">
+            Resume Analyzer
+        </a>
+
+        <a href="{% url 'resume_generator' %}">
+            Resume Generator
+        </a>
+
+        <a href="{% url 'roadmap' %}" class="active">
+            Roadmap Generator
+        </a>
+
+        <a href="{% url 'interview_prep' %}">
+            Interview Prep
+        </a>
+
+        <a onclick="logout()" style="cursor:pointer;">Logout</a>
+
+
+    </div>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+        <h1>Roadmap Generator</h1>
+
+        <p>
+            Generate personalized learning roadmap using AI.
+        </p>
+
+        <button class="print-btn">
+            Print Roadmap
+        </button>
+
+    </div>
+
+    <!-- INPUT SECTION -->
+
+    <div class="input-section">
+
+        <div class="input-grid">
+
+            <!-- ROLE -->
+
+            <div class="role-box">
+
+                <label>
+                    Target Role
+                </label>
+
+                <input 
+                    type="text"
+                    id="roleInput"
+                    placeholder="Software Engineer, Cloud Engineer..."
+                    required
+                >
+
+            </div>
+
+            <!-- DURATION -->
+
+            <div class="role-box">
+
+                <label>
+                    Completion Duration
+                </label>
+
+                <input 
+                    type="text"
+                    id="durationInput"
+                    placeholder="3 Months, 6 Months..."
+                    required
+                >
+
+            </div>
+
+            <!-- CURRENT CLASS -->
+
+            <div class="role-box">
+
+                <label>
+                    Current Education
+                </label>
+
+                <input 
+                    type="text"
+                    id="classInput"
+                    placeholder="2nd Year, 3rd Year, Final Year..."
+                    required
+                >
+
+            </div>
+
+            <!-- BUTTON -->
+
+            <button class="generate-btn">
+                Generate Roadmap
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ROADMAP -->
+
+    <div class="roadmap-section">
+            
+    </div>
+
+</div>
+
+<script src="{% static 'scripts/roadmap.js' %}"></script>
+
+</body>
+</html>

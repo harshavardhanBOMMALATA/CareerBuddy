@@ -1,0 +1,123 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CareerBuddy Login</title>
+
+    <link rel="stylesheet" href="{% static 'styles/login.css' %}">
+
+</head>
+<body>
+
+    <div class="left-section">
+
+        <div class="logo">
+            CareerBuddy
+        </div>
+
+        <h1>
+            Welcome Back!
+        </h1>
+
+        <p>
+            Continue your AI-powered career preparation journey with smart resume analysis, roadmap generation, and interview preparation tools.
+        </p>
+
+        <img 
+            src="{% static 'templates/home.png' %}" 
+            class="dashboard-image"
+        >
+
+    </div>
+
+    <div class="right-section">
+
+        <div class="login-box">
+
+            <h2>Login</h2>
+
+            <div class="sub-text">
+                Enter your credentials to access your account
+            </div>
+
+            <form id="loginForm" action="{% url 'login' %}" method="POST" novalidate>
+
+                {% csrf_token %}
+
+                <div class="input-group">
+
+                    <label>Email Address</label>
+
+                    <input 
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        name="email"
+                    >
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Password</label>
+
+                    <input 
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="Enter your password"
+                    >
+
+                </div>
+
+                <button type="submit" class="login-btn">
+                    Login
+                </button>
+
+            </form>
+
+            <div class="bottom-text">
+                Don’t have an account?
+                <a href="{% url 'register_page' %}">Create one</a>
+            </div>
+
+            <div class="footer-links">
+
+            <a 
+            href="https://www.linkedin.com/in/harshavardhan-bommalata-7bb9442b0"
+            target="_blank">
+                LinkedIn
+            </a>
+
+            <a 
+            href="https://github.com/harshavardhanBOMMALATA/CareerBuddy"
+            target="_blank">
+                Documentation
+            </a>
+
+            <a href="mailto:hbommalata@gmail.com">
+                Contact Us
+            </a>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 CareerBuddy. All Rights Reserved.
+        </p>
+
+    </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="{% static 'scripts/login.js' %}"></script>
+
+</body>
+</html>

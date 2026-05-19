@@ -1,0 +1,233 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CareerBuddy Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<link rel="stylesheet" href="{% static 'styles/home.css' %}">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+    <div class="logo">
+        CareerBuddy
+    </div>
+
+    <div class="menu">
+
+        <a href="{% url 'home' %}" class="active">Dashboard</a>
+
+        <a href="{% url 'resume_analyzer' %}">Resume Analyzer</a>
+
+        <a href="{% url 'resume_generator' %}">Resume Generator</a>
+
+        <a href="{% url 'roadmap' %}">Roadmap Generator</a>
+
+        <a href="{% url 'interview_prep' %}">Interview Prep</a>
+
+        <a onclick="logout()" style="cursor:pointer;">Logout</a>
+
+    </div>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+        <div>
+            <h1>Dashboard</h1>
+            <p>Track your AI career preparation journey</p>
+        </div>
+
+        <div class="topbar-right">
+
+    <div class="user-profile" onclick="toggleProfileMenu()">
+
+        <div class="user-icon">
+
+            <i class="fas fa-user"></i>
+
+        </div>
+
+        <div class="profile-menu" id="profileMenu">
+
+            <h3>Harsha</h3>
+
+            <p>hbommalata@gmail.com</p>
+
+            <div class="profile-option">
+                <a href="{% url 'resume_analyzer' %}" style="text-decoration: none;">Resume Analyzer</a>
+            </div>
+
+            <div class="profile-option">
+                <a href="{% url 'resume_generator' %}" style="text-decoration: none;">Resume Generator</a>
+            </div>
+
+            <div class="profile-option">
+                <a href="{% url 'roadmap' %}" style="text-decoration: none;">Roadmap Generator</a>
+            </div>
+
+            <div class="profile-option">
+                <a href="{% url 'interview_prep' %}" style="text-decoration: none;">Interview Prep</a> 
+            </div>
+
+            <div 
+                class="profile-option logout-option"
+                onclick="logout()"
+            >
+                Logout
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+    </div>
+
+    <!-- STATS -->
+
+    <div class="stats">
+
+        <div class="card">
+            <h3>Resume Analyzed</h3>
+            <div class="value">0</div>
+            <div class="small">Not started</div>
+        </div>
+
+        <div class="card">
+            <h3>Roadmaps Created</h3>
+            <div class="value">0</div>
+            <div class="small">Not started</div>
+        </div>
+
+        <div class="card">
+            <h3>Interviews Prepared</h3>
+            <div class="value">0</div>
+            <div class="small">Not started</div>
+        </div>
+
+        <div class="card">
+            <h3>Average ATS Score</h3>
+            <div class="value">0%</div>
+            <div class="small">Not started</div>
+        </div>
+
+    </div>
+
+    <!-- GRID -->
+
+    <div class="grid">
+
+        <!-- RECENT ACTIVITY -->
+
+        <div class="history-box">
+
+            <h2>Recent Activity</h2>
+
+            <div class="history-list" id="historyList">
+
+                
+
+            </div>
+
+            <div class="tips-box">
+
+                <h3>AI Career Tip</h3>
+
+                <p>
+                    Adding measurable achievements like
+                    “Improved performance by 30%”
+                    can significantly increase ATS score.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+
+        <div class="right-side">
+
+            <div class="graph-box">
+
+                <h2>Overall Progress</h2>
+
+                <canvas id="progressChart"></canvas>
+
+            </div>
+
+            <div class="actions">
+
+                <h2>Quick Actions</h2>
+
+                <div class="action-card"
+                onclick="window.location.href='/resume_analyzer/'">
+                    <h3>Analyze Resume</h3>
+                    <p>
+                        Upload your resume and get
+                        ATS analysis instantly.
+                    </p>
+                </div>
+
+                <div class="action-card"
+                onclick="window.location.href='/resume-generator/'">
+                    <h3>Create Resume</h3>
+                    <p>
+                        Generate professional AI-powered
+                        resumes quickly.
+                    </p>
+                </div>
+
+                <div class="action-card"
+                onclick="window.location.href='/roadmap/'">
+                    <h3>Create Roadmap</h3>
+                    <p>
+                        Generate personalized learning
+                        roadmap for your goals.
+                    </p>
+                </div>
+
+                <div class="action-card"
+                onclick="window.location.href='/interview_prep/'">
+                    <h3>Start Practicing</h3>
+                    <p>
+                        Practice technical and HR
+                        interview questions.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{% static 'scripts/home.js' %}"></script>
+
+</body>
+</html>

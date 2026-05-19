@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerBuddy Login</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            width:100%;
+            height:100vh;
+            display:flex;
+            background:#f4f5fb;
+            overflow:hidden;
+        }
+
+        .left-section{
+            width:55%;
+            height:100vh;
+            display:flex;
+            flex-direction:column;
+            justify-content:flex-start;
+            padding:50px 70px;
+            background:#eef0ff;
+            overflow:hidden;
+        }
+
+        .logo{
+            font-size:55px;
+            font-weight:bold;
+            color:#4f46e5;
+            margin-bottom:25px;
+        }
+
+        .left-section h1{
+            font-size:72px;
+            line-height:1.1;
+            color:#0f172a;
+            margin-bottom:20px;
+        }
+
+        .left-section p{
+            font-size:22px;
+            line-height:1.7;
+            color:#64748b;
+            margin-bottom:35px;
+            max-width:700px;
+        }
+
+        .dashboard-image{
+            width:90%;
+            height:420px;
+            object-fit:cover;
+            border-radius:25px;
+            box-shadow:0px 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .right-section{
+            width:45%;
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .login-box{
+            width:500px;
+            background:white;
+            padding:50px;
+            border-radius:25px;
+            box-shadow:0px 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .login-box h2{
+            text-align:center;
+            font-size:50px;
+            color:#0f172a;
+            margin-bottom:10px;
+        }
+
+        .sub-text{
+            text-align:center;
+            color:#64748b;
+            font-size:18px;
+            margin-bottom:40px;
+        }
+
+        .input-group{
+            margin-bottom:25px;
+        }
+
+        .input-group label{
+            display:block;
+            margin-bottom:10px;
+            font-size:18px;
+            font-weight:600;
+            color:#0f172a;
+        }
+
+        .input-group input{
+            width:100%;
+            padding:18px;
+            border:1px solid #dcdcdc;
+            border-radius:14px;
+            font-size:17px;
+            outline:none;
+            transition:0.3s;
+            background:#f1f5f9;
+        }
+
+        .input-group input:focus{
+            border-color:#4f46e5;
+            background:white;
+        }
+
+        .login-btn{
+            width:100%;
+            padding:18px;
+            border:none;
+            border-radius:14px;
+            background:#4f46e5;
+            color:white;
+            font-size:20px;
+            cursor:pointer;
+            transition:0.3s;
+            margin-top:10px;
+        }
+
+        .login-btn:hover{
+            background:#4338ca;
+        }
+
+        .bottom-text{
+            margin-top:30px;
+            text-align:center;
+            font-size:17px;
+            color:#64748b;
+        }
+
+        .bottom-text a{
+            color:#4f46e5;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        @media(max-width:1200px){
+
+            .left-section{
+                display:none;
+            }
+
+            .right-section{
+                width:100%;
+            }
+
+        }
+
+        @media(max-width:600px){
+
+            .login-box{
+                width:90%;
+                padding:35px;
+            }
+
+            .login-box h2{
+                font-size:38px;
+            }
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="left-section">
+
+        <div class="logo">
+            CareerBuddy
+        </div>
+
+        <h1>
+            Welcome Back!
+        </h1>
+
+        <p>
+            Continue your AI-powered career preparation journey with smart resume analysis, roadmap generation, and interview preparation tools.
+        </p>
+
+        <img 
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
+            class="dashboard-image"
+        >
+
+    </div>
+
+    <div class="right-section">
+
+        <div class="login-box">
+
+            <h2>Login</h2>
+
+            <div class="sub-text">
+                Enter your credentials to access your account
+            </div>
+
+            <form>
+
+                <div class="input-group">
+
+                    <label>Email Address</label>
+
+                    <input 
+                        type="email"
+                        placeholder="Enter your email"
+                    >
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Password</label>
+
+                    <input 
+                        type="password"
+                        placeholder="Enter your password"
+                    >
+
+                </div>
+
+                <button class="login-btn">
+                    Login
+                </button>
+
+            </form>
+
+            <div class="bottom-text">
+                Don’t have an account?
+                <a href="#">Create one</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

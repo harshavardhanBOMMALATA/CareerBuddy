@@ -1,0 +1,144 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CareerBuddy Register</title>
+
+    <link rel="stylesheet" href="{% static 'styles/register.css' %}">
+
+</head>
+<body>
+
+    <div class="left-section">
+
+        <div class="logo">
+            CareerBuddy
+        </div>
+
+        <h1>
+            Create Account!
+        </h1>
+
+        <p>
+            Start your AI-powered career preparation journey with smart resume analysis, roadmap generation, and interview preparation tools.
+        </p>
+
+        <img 
+            src="{% static 'templates/home.png' %}" 
+            class="dashboard-image"
+        >
+        
+        <div style="display:flex;justify-content:center;align-items:center;gap:18px;flex-wrap:wrap;margin-top:20px;">
+
+    <a 
+    href="https://www.linkedin.com/in/harshavardhan-bommalata-7bb9442b0"
+    target="_blank"
+    style="text-decoration:none;display:inline-block;color:#4f46e5;font-size:14px;">
+        LinkedIn
+    </a>
+
+    <a 
+    href="https://github.com/harshavardhanBOMMALATA/CareerBuddy"
+    target="_blank"
+    style="text-decoration:none;display:inline-block;color:#4f46e5;font-size:14px;">
+        Documentation
+    </a>
+
+    <a 
+    href="mailto:hbommalata@gmail.com"
+    style="text-decoration:none;display:inline-block;color:#4f46e5;font-size:14px;">
+        Contact Us
+    </a>
+
+</div>
+
+<p style="text-align: center;font-size:14px;color:#6b7280;">© 2026 CareerBuddy. All Rights Reserved.</p>
+
+        
+    </div>
+
+
+    
+    <div class="right-section">
+
+        <div class="register-box">
+
+            <h2>Register</h2>
+
+            <div class="sub-text">
+                Create your account to continue
+            </div>
+
+            <form id="registerForm" action="{% url 'register' %}" method="POST">
+
+                {% csrf_token %}
+
+                <div class="input-group">
+
+                    <label>Full Name</label>
+
+                    <input 
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your name"
+                    >
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Email Address</label>
+
+                    <input 
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                    >
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Password</label>
+
+                    <input 
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                    >
+
+                </div>
+
+                <button type="submit" class="register-btn">
+                    Create Account
+                </button>
+
+            </form>
+
+            <div class="bottom-text">
+                Already have an account?
+                <a href="{% url 'login_page' %}">Login</a>
+            </div>
+
+            
+
+            
+
+        </div>
+
+    </div>
+
+
+
+    <script src="{% static 'scripts/register.js' %}"></script>
+
+</body>
+</html>

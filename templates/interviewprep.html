@@ -1,0 +1,370 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+    Interview Prep
+</title>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="{% static 'styles/interviewprep.css' %}">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+        CareerBuddy
+    </div>
+
+    <div class="menu">
+
+        <a href="{% url 'home' %}">
+            Dashboard
+        </a>
+
+        <a href="{% url 'resume_analyzer' %}">
+            Resume Analyzer
+        </a>
+
+        <a href="{% url 'resume_generator' %}">
+            Resume Generator
+        </a>
+
+        <a href="{% url 'roadmap' %}">
+            Roadmap Generator
+        </a>
+
+        <a href="{% url 'interview_prep' %}" class="active">
+            Interview Prep
+        </a>
+
+        <a onclick="logout()" style="cursor:pointer;">Logout</a>
+
+
+    </div>
+
+</div>
+
+<div class="main">
+
+    <div class="topbar">
+
+        <h1>
+            AI Voice Interview Prep
+        </h1>
+
+        <p>
+            Practice AI-powered voice interviews in real-time.
+        </p>
+
+    </div>
+
+    <div class="setup-section">
+
+        <div class="setup-grid">
+
+            <div class="input-box">
+
+                <label>
+                    Target Role
+                </label>
+
+                <input
+                type="text"
+                id="roleInput"
+                placeholder="Software Engineer">
+
+            </div>
+
+            <div class="input-box">
+
+                <label>
+                    Difficulty
+                </label>
+
+                <select id="difficultyInput">
+
+                    <option>
+                        Beginner
+                    </option>
+
+                    <option>
+                        Intermediate
+                    </option>
+
+                    <option>
+                        Advanced
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="input-box">
+
+                <label>
+                    Interview Type
+                </label>
+
+                <select id="typeInput">
+
+                    <option>
+                        Technical
+                    </option>
+
+                    <option>
+                        HR
+                    </option>
+
+                    <option>
+                        Behavioral
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="input-box">
+
+                <label>
+                    Duration
+                </label>
+
+                <select id="durationInput">
+
+                    <option>
+                        5 Minutes
+                    </option>
+
+                    <option>
+                        10 Minutes
+                    </option>
+
+                    <option selected>
+                        15 Minutes
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <button class="start-btn">
+
+            Start Interview
+
+        </button>
+
+    </div>
+
+    <div class="interview-container">
+
+        <div class="interview-card">
+
+            <div class="card-top">
+
+                <div class="status-dot"></div>
+
+                <h2>
+                    AI Interviewer
+                </h2>
+
+            </div>
+
+            <div class="question-box">
+
+                <p id="questionText">
+
+                    Tell me about yourself.
+
+                </p>
+
+            </div>
+
+            <div class="wave-container">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </div>
+
+        <div class="interview-card">
+
+            <div class="card-top">
+
+                <div class="record-dot"></div>
+
+                <h2>
+                    Your Response
+                </h2>
+
+            </div>
+
+            <div class="timer-box">
+
+                <h1 id="timerText">
+                    15:00
+                </h1>
+
+                <p>
+                    Remaining Time
+                </p>
+
+            </div>
+
+            <div class="record-buttons">
+
+                <button class="stop-btn">
+
+                    Stop Recording
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="transcript-section">
+
+        <div class="section-title">
+
+            Live Transcript
+
+        </div>
+
+        <div
+        class="transcript-box"
+        id="transcriptBox">
+
+            Your voice response will appear here...
+
+        </div>
+
+    </div>
+
+    <div class="feedback-section">
+
+        <div class="section-title">
+
+            AI Feedback
+
+        </div>
+
+        <div class="feedback-grid">
+
+            <div class="feedback-card">
+
+                <h2>
+                    Confidence
+                </h2>
+
+                <p id="confidenceScore">
+                    0%
+                </p>
+
+            </div>
+
+            <div class="feedback-card">
+
+                <h2>
+                    Communication
+                </h2>
+
+                <p id="communicationScore">
+                    0%
+                </p>
+
+            </div>
+
+            <div class="feedback-card">
+
+                <h2>
+                    Technical Accuracy
+                </h2>
+
+                <p id="technicalScore">
+                    0%
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function getCookie(name){
+
+    let cookieValue = null;
+
+    if(document.cookie && document.cookie !== ''){
+
+        const cookies =
+            document.cookie.split(';');
+
+        for(let i = 0; i < cookies.length; i++){
+
+            const cookie =
+                cookies[i].trim();
+
+            if(cookie.substring(0,name.length + 1)
+
+                === (name + '=')){
+
+                cookieValue =
+                    decodeURIComponent(
+
+                        cookie.substring(
+                            name.length + 1
+                        )
+
+                    );
+
+                break;
+
+            }
+
+        }
+
+    }
+
+    return cookieValue;
+
+}
+
+const csrftoken =
+    getCookie('csrftoken');
+
+</script>
+
+<script
+src="{% static 'scripts/interviewprep.js' %}">
+</script>
+
+</body>
+</html>

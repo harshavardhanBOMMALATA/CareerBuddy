@@ -1,0 +1,216 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Resume Analyzer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'styles/analyzer.css' %}">
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+    <div class="logo">
+        CareerBuddy
+    </div>
+
+    <div class="menu">
+
+        <a href="{% url 'home' %}">Dashboard</a>
+
+        <a href="{% url 'resume_analyzer' %}" class="active">Resume Analyzer</a>
+
+        <a href="{% url 'resume_generator' %}">Resume Generator</a>
+
+        <a href="{% url 'roadmap' %}">Roadmap Generator</a>
+
+        <a href="{% url 'interview_prep' %}">Interview Prep</a>
+
+        <a onclick="logout()" style="cursor:pointer;">Logout</a>
+
+
+    </div>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+        <h1>Resume Analyzer</h1>
+
+        <p>
+            Upload your resume and get AI-powered ATS analysis instantly.
+        </p>
+
+        
+
+    </div>
+
+    <!-- UPLOAD SECTION -->
+
+    <div class="upload-section">
+
+        <div class="upload-grid">
+
+            <!-- LEFT -->
+
+            <div class="upload-box">
+
+                <div class="upload-icon">
+                    ☁️
+                </div>
+
+                <h2>Upload Your Resume</h2>
+
+                <p>
+                    Supported format: PDF (Max 5MB)
+                </p>
+
+                <input type="file" id="fileInput" hidden>
+
+                <button class="upload-btn">
+                    Choose File
+                </button>
+
+            </div>
+
+            <!-- RIGHT -->
+
+            <div class="right-upload">
+
+                <div class="file-box">
+
+                    <h3 id="fileName">
+                        No file selected
+                    </h3>
+
+                    <p id="waiting">
+                        Waiting for upload
+                    </p>
+
+                </div>
+
+                <div class="role-box">
+
+                    <label>
+                        Target Role
+                    </label>
+
+                    <input 
+                        type="text"
+                        placeholder="Software Engineer, Cloud Engineer..."
+                    >
+
+                </div>
+
+                <button class="analyze-btn">
+                    Analyze Resume
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RESULT GRID -->
+
+    <div class="result-grid">
+
+        <!-- ATS -->
+
+        <div class="card ats-card">
+
+            <div class="circle">
+
+                <div class="inner-circle">
+
+                    <h1 id="atsScore">0%</h1>
+
+                </div>
+
+            </div>
+
+            <h2>ATS Score</h2>
+
+        </div>
+
+        <!-- SKILLS -->
+
+        <div class="card skills-card">
+
+            <h2>Skills Detected</h2>
+
+            <div class="skills" id="skillsContainer">
+                
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- KEYWORDS -->
+
+    <div class="card keyword-card">
+
+        <h2>Missing Keywords</h2>
+
+        <div class="keywords" id="keywordsContainer">
+
+        </div>
+
+    </div>
+
+    <!-- BOTTOM GRID -->
+
+    <div class="bottom-grid">
+
+        <!-- STRENGTHS -->
+
+        <div class="card">
+
+            <h2>Strengths</h2>
+
+            <ul class="list" id="strengthsContainer">
+
+            </ul>
+
+        </div>
+
+        <!-- SUGGESTIONS -->
+
+        <div class="card">
+
+            <h2>Suggestions</h2>
+
+            <ul class="list" id="suggestionsContainer">
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{% static 'scripts/analyzer.js' %}"></script>
+
+</body>
+</html>

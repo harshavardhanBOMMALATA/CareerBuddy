@@ -1,0 +1,406 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Resume Generator
+</title>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="{% static 'styles/resumegenerator.css' %}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<div class="logo">
+CareerBuddy
+</div>
+
+<div class="menu">
+
+<a href="{% url 'home' %}">
+Dashboard
+</a>
+
+<a href="{% url 'resume_analyzer' %}">
+Resume Analyzer
+</a>
+
+<a
+href="{% url 'resume_generator' %}"
+class="active">
+Resume Generator
+</a>
+
+<a href="{% url 'roadmap' %}">
+Roadmap Generator
+</a>
+
+<a href="{% url 'interview_prep' %}">
+Interview Prep
+</a>
+
+<a onclick="logout()" style="cursor:pointer;">Logout</a>
+
+
+</div>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+<div class="title-section">
+
+<h1>
+Resume Generator
+</h1>
+
+<p>
+Create ATS Friendly Professional Resume
+</p>
+
+</div>
+
+<div class="form-grid">
+
+<!-- PERSONAL -->
+
+<div class="form-card">
+
+<h3>
+Personal Details
+</h3>
+
+<input
+type="text"
+placeholder="Full Name">
+
+<input
+type="email"
+placeholder="Email">
+
+<input
+type="text"
+placeholder="Phone Number">
+
+<input
+type="text"
+placeholder="LinkedIn">
+
+<input
+type="text"
+placeholder="Github">
+
+</div>
+
+<!-- EDUCATION -->
+
+<div class="form-card">
+
+<div class="card-header">
+
+<h3>
+Education
+</h3>
+
+<button
+class="add-btn"
+id="addEducation">
+Add
+</button>
+
+</div>
+
+<div id="educationContainer">
+
+<div class="sub-card">
+
+<input
+type="text"
+placeholder="From Year">
+
+<input
+type="text"
+placeholder="To Year">
+
+<input
+type="text"
+placeholder="Education Course">
+
+<input
+type="text"
+placeholder="Institute / University Name">
+
+<input
+type="text"
+placeholder="CGPA / Percentage">
+
+<button
+class="remove-btn">
+Remove
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SKILLS -->
+
+<div class="form-card">
+
+<h3>
+Skills
+</h3>
+
+<textarea
+placeholder="Python, Java, React">
+</textarea>
+
+</div>
+
+<!-- PROJECTS -->
+
+<div class="form-card">
+
+<div class="card-header">
+
+<h3>
+Projects
+</h3>
+
+<button
+class="add-btn"
+id="addProject">
+Add
+</button>
+
+</div>
+
+<div id="projectContainer">
+
+<div class="sub-card">
+
+<input
+type="text"
+placeholder="Project Title">
+
+<input
+type="text"
+placeholder="Duration">
+
+<input
+type="text"
+placeholder="Project Link">
+
+<input
+type="text"
+placeholder="Skills Used">
+
+<textarea
+placeholder="About Project">
+</textarea>
+
+<button
+class="remove-btn">
+Remove
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- EXPERIENCE -->
+
+<div class="form-card">
+
+<div class="card-header">
+
+<h3>
+Experience
+</h3>
+
+<button
+class="add-btn"
+id="addExperience">
+Add
+</button>
+
+</div>
+
+<div id="experienceContainer">
+
+<div class="sub-card">
+
+<input
+type="text"
+placeholder="Company Name">
+
+<input
+type="text"
+placeholder="Role">
+
+<input
+type="text"
+placeholder="From">
+
+<input
+type="text"
+placeholder="To">
+
+<textarea
+placeholder="About Experience">
+</textarea>
+
+<button
+class="remove-btn">
+Remove
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CERTIFICATIONS -->
+
+<div class="form-card">
+
+<div class="card-header">
+
+<h3>
+Certifications
+</h3>
+
+<button
+class="add-btn"
+id="addCertification">
+Add
+</button>
+
+</div>
+
+<div id="certificationContainer">
+
+<div class="sub-card">
+
+<input
+type="text"
+placeholder="Certificate Name">
+
+<input
+type="text"
+placeholder="Provider Name">
+
+<input
+type="text"
+placeholder="From">
+
+<input
+type="text"
+placeholder="To">
+
+<button
+class="remove-btn">
+Remove
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ACHIEVEMENTS -->
+
+<div class="form-card">
+
+<div class="card-header">
+
+<h3>
+Key Achievements
+</h3>
+
+<button
+class="add-btn"
+id="addAchievement">
+Add
+</button>
+
+</div>
+
+<div id="achievementContainer">
+
+<div class="sub-card">
+
+<input
+type="text"
+placeholder="Achievement Statement">
+
+<button
+class="remove-btn">
+Remove
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- LANGUAGES -->
+
+<div class="form-card">
+
+<h3>
+Languages Known
+</h3>
+
+<textarea
+placeholder="English, Telugu, Hindi">
+</textarea>
+
+</div>
+
+</div>
+
+<button class="generate-btn">
+Generate Resume
+</button>
+
+</div>
+
+</div>
+
+<script
+src="{% static 'scripts/resumegenerator.js' %}">
+</script>
+
+</body>
+</html>
